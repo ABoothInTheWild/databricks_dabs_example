@@ -1,0 +1,13 @@
+# The main pipeline for carvana_project
+resources:
+  pipelines:
+    carvana_project_pipeline:
+      name: carvana_project_pipeline
+      catalog: main
+      target: carvana_project_${bundle.target}
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src
